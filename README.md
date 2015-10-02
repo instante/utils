@@ -1,6 +1,10 @@
 Instante utilities
 ======
 
+[![Build Status](https://travis-ci.org/instante/utils.svg?branch=master)](https://travis-ci.org/instante/utils)
+[![Downloads this Month](https://img.shields.io/packagist/dm/instante/utils.svg)](https://packagist.org/packages/instante/utils)
+[![Latest stable](https://img.shields.io/packagist/v/instante/utils.svg)](https://packagist.org/packages/instante/utils)
+
 Requirements
 ------------
 
