@@ -17,7 +17,7 @@ Requirements
 Installation
 ------------
 
-The best way to install Instante urila is using  [Composer](http://getcomposer.org/):
+The best way to install Instante utils is using  [Composer](http://getcomposer.org/):
 
 ```sh
 $ composer require instante/utils
