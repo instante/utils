@@ -83,6 +83,7 @@ class ArrayHelper
      *
      * @param \Traversable|array $traversable
      * @param callable $callback
+     * @return array
      */
     public static function traversableMap($traversable, callable $callback)
     {
