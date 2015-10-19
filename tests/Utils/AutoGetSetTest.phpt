@@ -1,6 +1,6 @@
 <?php
 
-namespace InstanteTests\Utils;
+namespace Instante\Tests\Utils;
 
 use Instante\Utils\AutoGetSet;
 use Instante\Utils\StaticClass;

@@ -1,6 +1,6 @@
 <?php
 
-namespace InstanteTests\Helpers;
+namespace Instante\Tests\Helpers;
 
 use Instante\Helpers\DateTimeHelper;
 use Tester\Assert;

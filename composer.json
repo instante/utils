@@ -16,16 +16,17 @@
     },
     "require-dev": {
         "nette/tester": "@dev",
-        "jakub-onderka/php-parallel-lint": "~0.6"
+        "jakub-onderka/php-parallel-lint": "~0.6",
+        "nette/mail": "~2.2",
+        "nette/reflection": "~2.2"
     },
     "suggest": {
         "nette/mail": "~2.2",
         "nette/reflection": "~2.2"
     },
     "autoload": {
-        "psr-0": {
-            "Instante\\Utils\\": "src/",
-            "Instante\\Helpers\\": "src/"
+        "psr-4": {
+            "Instante\\": "src/"
         }
     }
 }

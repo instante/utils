@@ -1,6 +1,6 @@
 <?php
 
-namespace InstanteTests\Utils;
+namespace Instante\Tests\Utils;
 
 use Instante\Utils\StaticClass;
 use Tester\Assert;

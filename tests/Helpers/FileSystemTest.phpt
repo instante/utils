@@ -1,5 +1,5 @@
 <?php
-namespace InstanteTests\Helpers;
+namespace Instante\Tests\Helpers;
 
 use Instante\Helpers\FileSystem;
 use Tester\Assert;
