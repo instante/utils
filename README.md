@@ -8,7 +8,7 @@ Instante utilities
 Requirements
 ------------
 
-- PHP 5.4 or higher
+- PHP 5.5 or higher
 
 - [Nette Framework](https://github.com/nette/nette) 2.2
 
