@@ -9,6 +9,19 @@ use Exception;
 use Throwable; // PHP 7 ready
 use Nette\InvalidStateException;
 
+/**
+ * Simplifies access to complex nested structure where any member on the path can be null.
+ *
+ * Usage: instead of <code>$object->getSomething()->property->call()->['array_key'],</code>
+ * where anything after getSomething() may be NULL or not exist at all, use:
+ * <code>SafeGet::{null|exception}($object)->getSomething()->property['array_key']->_</code>
+ *
+ * null|exception methods wrap any any variable into SafeGet instance, which prevents triggering
+ * errors when something is not set by magic methods.
+ *
+ * Magic property '_', which can be seen at the end of the chain, simply un-wraps the result
+ * (or NULL if started with SafeGet::null and retrieving nested value fails).
+ */
 final class SafeGet implements ArrayAccess
 {
     const FAIL_RETURN_NULL = 1;
@@ -26,11 +39,25 @@ final class SafeGet implements ArrayAccess
         $this->onFailure = $onFailure;
     }
 
+    /**
+     * Creates instance of SafeGet which returns NULL from unwrapping property _
+     * when retrieving nested value fails.
+     *
+     * @param mixed $object
+     * @return SafeGet
+     */
     public static function null($object)
     {
         return new self($object, self::FAIL_RETURN_NULL);
     }
 
+    /**
+     * Creates instance of SafeGet which throws MissingValueException
+     * when retrieving nested value fails.
+     *
+     * @param mixed $object
+     * @return SafeGet
+     */
     public static function exception($object)
     {
         return new self($object, self::FAIL_THROW_EXCEPTION);
