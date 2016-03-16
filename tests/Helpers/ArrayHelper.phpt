@@ -3,6 +3,7 @@
 namespace Instante\Tests\Helpers;
 
 use Instante\Helpers\ArrayHelper;
+use Instante\Helpers\MissingValueException;
 use Tester\Assert;
 use Tester\TestCase;
 
@@ -54,6 +55,19 @@ class ArrayHelperTest extends TestCase
             $key = strtoupper($key);
             return substr($val, 0, 1);
         }), 'mapping an associative array');
+    }
+
+    public function testTranslateValues()
+    {
+        Assert::same(NULL, ArrayHelper::translateValues(NULL, []),
+            'translateValues should return NULL when passed traversable is NULL');
+        $dict = ['wo' => 'World', 'he' => 'Hello', 'ba' => 'Bar'];
+        Assert::equal([], ArrayHelper::translateValues([], $dict));
+        Assert::equal(['Hello', 'World'], ArrayHelper::translateValues(['he', 'wo'], $dict));
+        Assert::equal(['Hello', 'there', 'World'], ArrayHelper::translateValues(['he', 'there', 'wo'], $dict, TRUE));
+        Assert::exception(function () use ($dict) {
+            ArrayHelper::translateValues(['he', 'there', 'wo'], $dict);
+        }, MissingValueException::class);
     }
 }
 

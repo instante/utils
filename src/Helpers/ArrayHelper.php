@@ -24,7 +24,7 @@ class ArrayHelper
      */
     public static function createKeyMap($values, $valueId = 'name', $keyId = 'id')
     {
-        $pairs = array();
+        $pairs = [];
         foreach ($values as $value) {
             if (is_object($value)) {
                 $pairs[$value->{$keyId}] = $value->{$valueId};
@@ -100,5 +100,19 @@ class ArrayHelper
             $result[$key] = $x;
         }
         return $result;
+    }
+
+    public static function translateValues($traversable, $dictionary, $skipMissing = FALSE)
+    {
+        return self::traversableMap($traversable, function ($value) use ($dictionary, $skipMissing) {
+            if (!isset($dictionary[$value])) {
+                if ($skipMissing) {
+                    return $value;
+                } else {
+                    throw new MissingValueException($dictionary, $value, MissingValueException::ACCESS_ARRAY);
+                }
+            }
+            return $dictionary[$value];
+        });
     }
 }
