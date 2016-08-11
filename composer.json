@@ -12,7 +12,7 @@
         "GPL-3.0"
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.6.0",
         "nette/utils": "~2.2"
     },
     "require-dev": {
