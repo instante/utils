@@ -18,7 +18,7 @@ class SecureCallHelper
         $rc = new ReflectionClass($object);
         if ($rc->hasMethod($method)) {
             $rm = $rc->getMethod($method);
-            if ($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
+            if ($rm->isPublic() && !$rm->isStatic()) {
                 return $object->$method(...$args);
             }
         }
