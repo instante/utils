@@ -2,10 +2,7 @@
 
 namespace Instante\Tests\Helpers;
 
-use Instante\Helpers\MissingValueException;
-use Instante\Helpers\SafeGet;
 use Instante\Helpers\Strings;
-use stdClass;
 use Tester\Assert;
 
 require_once __DIR__ . '/../bootstrap.php';
